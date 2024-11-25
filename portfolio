@@ -1,0 +1,40 @@
+// src/components/ProjectCard.js
+import React from 'react';
+
+const ProjectCard = ({ title, description, link }) => (
+    <div className="project-card">
+        <h3>{title}</h3>
+        <p>{description}</p>
+        <a href={link} target="_blank" rel="noopener noreferrer">
+            View Project
+        </a>
+    </div>
+);
+
+export default ProjectCard;
+
+// src/App.js
+import React from 'react';
+import ProjectCard from './components/ProjectCard';
+
+const projects = [
+    { title: 'Pet Well Raw Feed', description: 'WooCommerce UK-based pet store.', link: 'https://petwellrawfeed.co.uk/' },
+    { title: 'Infinitix Solutions', description: 'UK-based web agency site.', link: 'https://infinitixsolutionsltd.com/' },
+    { title: 'Tech Qubix', description: 'US-based web agency.', link: 'https://www.techqubix.com/' },
+    { title: 'Comcodia', description: 'US-based digital marketing agency.', link: 'https://www.comcodia.com/' },
+];
+
+function App() {
+    return (
+        <div>
+            <h1>My Portfolio</h1>
+            <div className="projects">
+                {projects.map((project, index) => (
+                    <ProjectCard key={index} {...project} />
+                ))}
+            </div>
+        </div>
+    );
+}
+
+export default App;
